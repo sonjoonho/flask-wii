@@ -8,6 +8,7 @@ flask-socketio = "*"
 flask = "*"
 eventlet = "*"
 flask-security = "*"
+python-socketio = "*"
 
 [dev-packages]
 
