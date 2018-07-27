@@ -1,0 +1,9 @@
+div {
+  display: inline-block;
+}
+
+#cursor {
+  position: absolute;
+  background-color: blue;
+  z-index: 9;
+}

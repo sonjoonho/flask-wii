@@ -9,6 +9,6 @@ def index():
     if request.user_agent.platform == "android":
         return redirect(url_for("client.controller"))
     else:
-        return render_template("server/index.html")
+        return render_template("server/server.html")
 
 

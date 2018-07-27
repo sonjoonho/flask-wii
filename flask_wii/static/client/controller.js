@@ -14,18 +14,44 @@ $(document).ready(function() {
   });
 
   if (window.DeviceOrientationEvent) {
-    window.addEventListener("deviceorientation", function(eventData) {
-      /* alpha: direction according to the compass
-       * beta: front-back tilt
-       * gamma: left-right tilt
-       */
-      var gamma = eventData.gamma;
-      var beta = eventData.beta;
-      var alpha = eventData.alpha;
-      console.log("("+alpha+","+beta+","+gamma+")");
-      socket.emit("orientation", {alpha: alpha, beta: beta, gamma: gamma});
+    /* alpha: direction according to the compass                         
+     * beta: front-back tilt
+     * gamma: left-right tilt
+     */
 
+    var alpha, beta, gamma;
+  
+    window.addEventListener("deviceorientation", function(eventData) {       
+
+      // This is for zeroing the values. I think this is required on iOS but not Android or not idk
+      // if (alpha_0 === null) {
+      //   alpha_0 = eventData.alpha;
+      // }
+
+      // alpha = eventData.alpha - alpha_0;
+      // beta = eventData.beta;
+      // gamma = eventData.gamma;
+      
+      alpha = eventData.alpha;
+      beta = eventData.beta;
+      gamma = eventData.gamma;
+
+      if (alpha > 180) {
+        alpha -= 360;
+      }
+      
+
+      console.log("("+alpha+","+beta+","+gamma+")");
+
+      socket.emit("orientation", {alpha: alpha, beta: beta, gamma: gamma});
+                                                                          
     }, false);
+    
+    
+    
+
+    
+
   } else {
     console.log("Unsupported!");
     // TODO clearly this redirect doesn't work
