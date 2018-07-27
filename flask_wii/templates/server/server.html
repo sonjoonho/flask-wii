@@ -22,7 +22,9 @@
 
 {% block content %}
 
-<div id="cursor">Hello</div>
+<div id="cursor">
+<img src={{ url_for("static", filename="server/cursor.png") }}  width="50">
+</div>
 
 
 <div id="alpha">0</div>

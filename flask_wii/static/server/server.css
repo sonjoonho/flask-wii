@@ -4,6 +4,5 @@ div {
 
 #cursor {
   position: absolute;
-  background-color: blue;
   z-index: 9;
 }

@@ -8,8 +8,8 @@ $(document).ready(function() {
     socket.emit("joined", {data: "5"});
   });
 
-  $("#A").click(function() {
-    socket.emit("A_Press", "");
+  $("#a_button").click(function() {
+    socket.emit("a_press", "");
 
   });
 

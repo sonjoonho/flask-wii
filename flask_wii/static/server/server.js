@@ -31,8 +31,14 @@ $(document).ready(function() {
     }
 
     // cursor.style.left = (cursor.offsetLeft - cursorPosition.x) + "px"
-    cursor.style.left = (cursorPosition.x) + "px"
-    cursor.style.top = (cursorPosition.y) + "px"
+    cursor.style.left = (cursorPosition.x) + "px";
+    cursor.style.top = (cursorPosition.y) + "px";
+    // Safari
+    cursor.style.WebkitTransform = "rotate(" + gamma + "deg)"; 
+    // IE9
+    cursor.style.msTransform = "rotate(" + gamma + "deg)";
+    // Standard
+    cursor.style.transform = "rotate(" + gamma + "deg)";
     console.log("x: "+position.x * screenWidth+ "y: "+ position.y);
   });
 
