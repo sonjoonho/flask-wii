@@ -1,17 +1,22 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+{% block head %}
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src={{ url_for("static", filename="server/server.js") }} ></script>
+  <!-- TODO
+  <script type="text/javasccript">
+    window.appConfig = {}
 
-<script type="text/javascript" charset="utf-8">
-    var socket = io.connect('http://' + document.domain + ':' + location.port);
-    socket.on('connect', function() {
-        socket.emit('my event', {data: 'I\'m connected!'});
-    });
 
-</script>
-  </head>
-  <body>
-  "hello"
-  </body>
-</html>
+  </script>
+  -->
+
+{% endblock %}
+
+{% block body %}
+<p id="alpha"><p>
+
+
+{% endblock %}
