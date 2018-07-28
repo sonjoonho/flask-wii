@@ -11,4 +11,11 @@ def index():
     else:
         return render_template("server/server.html")
 
+@server.route("/canvas")
+def canvas():
+    return render_template("server/canvas.html")
 
+@server.route("/boot")
+def boot():
+    room = "123"
+    return render_template("server/boot.html", room=room)

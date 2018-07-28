@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+  <script src={{ url_for("static", filename="server/server.js") }} "></script>
+  <script src={{ url_for("static", filename="server/canvas.js") }} "></script>
+{% endblock %}
+
+{% block content %}
+
+<canvas id="c">Your browser does not support canvases.</canvas>
+{% endblock %}

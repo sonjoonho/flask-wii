@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href={{ url_for("static", filename="server/boot.css") }}>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="tv-wrapper">
+<div id="tv" ></div>
+</div>
+<svg version="1.1" height="200" width="200" viewBox="0 0 30 30">
+    <path d="M15 0 Q0 0 0 15 T15 30 30 15 15 0" fill="#249B57" stroke="none" />
+</svg>
+
+
+{% endblock %}

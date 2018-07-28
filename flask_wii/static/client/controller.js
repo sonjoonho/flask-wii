@@ -5,7 +5,8 @@ $(document).ready(function() {
 
   socket.on("connect", function() {
     console.log("Connected");
-    socket.emit("joined", {data: "5"});
+    // socket.emit("join", {room: room});
+    socket.emit("join", "");
   });
 
   $("#a_button").click(function() {
@@ -47,9 +48,20 @@ $(document).ready(function() {
                                                                           
     }, false);
     
-    
-    
+    var a_button = document.getElementById("a_button");
 
+    a_button.addEventListener("touchstart", function() {
+      socket.emit("a_down", "");
+    });
+
+    a_button.addEventListener("touchend", function() {
+      socket.emit("a_up", "");
+    });
+
+    $(window).on("orientationchange", function(event) {
+
+      
+    });
     
 
   } else {

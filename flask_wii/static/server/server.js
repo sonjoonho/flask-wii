@@ -5,6 +5,8 @@ $(document).ready(function() {
     socket.emit("joined", {data: "Connected"});
   });
 
+  // Cursor movement
+
   screenWidth = window.screen.width * window.devicePixelRatio;
   screenHeight = window.screen.height * window.devicePixelRatio;
 
@@ -39,33 +41,20 @@ $(document).ready(function() {
     cursor.style.msTransform = "rotate(" + gamma + "deg)";
     // Standard
     cursor.style.transform = "rotate(" + gamma + "deg)";
-    console.log("x: "+position.x * screenWidth+ "y: "+ position.y);
+    console.log("x: "+position.x * screenWidth + " y: "+ position.y);
   });
 
-  /* Moves the cursor
-   */
+  // Button presses
+
+  socket.on("a_down", function() {
+    cursor.src = "static/server/cursor_grabbing.png";
+  });
+
+  socket.on("a_up", function() {
+    cursor.src = "static/server/cursor.png";
+  });
 
 
-  function moveCursor(cursor) {
-    var x1 = 0, y1 = 0, x2 = 0, y2 = 0;
-    
-  }
-
-
-
-  function calculatePos(cursor) {
-    // Get angle
-    // Calculate X and Y
-    // Return
-    // x = alphajjj
-    var pos = {
-      x: x,
-      y: y
-    };
-
-    return pos;
-
-  }
 
 
 });

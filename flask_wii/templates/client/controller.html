@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 
 {% block head %}
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+  {{ super() }}
   <script type="text/javascript" src={{ url_for("static", filename="client/controller.js") }} ></script>
+  <link type="text/css" rel="stylesheet" href={{ url_for("static", filename="client/controller.css") }}>
 {% endblock %}
 
 {% block content %}
-  This is the controller
-  <button type="button" id="a_button">A</button>
+  <div id="a_button" class="not-selectable" onselectstart="return false">A</div>
 {% endblock %}

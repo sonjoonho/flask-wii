@@ -1,0 +1,22 @@
+#a_button {
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 500px;
+  background: white;
+  border-radius: 50%;
+  border: 25px solid gray;
+  margin: 0 auto;
+  font-size: 100px;
+  font-family: sans-serif;
+}
+
+.not-selectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
