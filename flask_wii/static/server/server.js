@@ -1,8 +1,11 @@
 $(document).ready(function() {
-  var socket = io.connect("http://" + document.domain + ":" + location.port);
+  var socket = io.connect("http://" + document.domain + ":" + location.port + "/wii");
+
+  var room = "123";
 
   socket.on("connect", function() {
-    socket.emit("joined", {data: "Connected"});
+    console.log("Connected to room " + room);
+    socket.emit("join", {room: room});
   });
 
   // Cursor movement
