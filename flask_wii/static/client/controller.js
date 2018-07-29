@@ -1,12 +1,14 @@
 $(document).ready(function() {
   
 
-  var socket = io.connect('http://' + document.domain + ':' + location.port);
+  var socket = io.connect('http://' + document.domain + ':' + location.port + "/wii");
+
+  // Pass room variable from template?
+  var room = document.getElementById("room").innerHTML;
 
   socket.on("connect", function() {
-    console.log("Connected");
-    // socket.emit("join", {room: room});
-    socket.emit("join", "");
+    console.log("Connected to room " + room);
+    socket.emit("client_join", {room: room});
   });
 
   $("#a_button").click(function() {
@@ -44,18 +46,19 @@ $(document).ready(function() {
 
       console.log("("+alpha+","+beta+","+gamma+")");
 
-      socket.emit("orientation", {alpha: alpha, beta: beta, gamma: gamma});
+      socket.emit("orientation", {room: room, angles: {alpha: alpha, beta: beta, gamma: gamma}
+      });
                                                                           
     }, false);
     
     var a_button = document.getElementById("a_button");
 
     a_button.addEventListener("touchstart", function() {
-      socket.emit("a_down", "");
+      socket.emit("a_down", {room: room});
     });
 
     a_button.addEventListener("touchend", function() {
-      socket.emit("a_up", "");
+      socket.emit("a_up", {room: room});
     });
 
     $(window).on("orientationchange", function(event) {

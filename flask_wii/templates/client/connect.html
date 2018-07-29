@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form method="POST" action="/connect">
+<form method="POST" action="/controller">
   {{ form.csrf_token }}
   {{ form.room }}
   <input type="submit" value="Join room">
