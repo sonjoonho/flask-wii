@@ -8,7 +8,7 @@ $(document).ready(function() {
 
   socket.on("connect", function() {
     console.log("Connected to room " + room);
-    socket.emit("join", {room: room});
+    socket.emit("client_join", {room: room});
   });
 
   $("#a_button").click(function() {

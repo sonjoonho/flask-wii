@@ -8,8 +8,15 @@ def on_join(data):
     room = data["room"]
     sid = request.sid
     join_room(room)
-    print("Connected to " + room + " from " + sid)
-    emit("join", room=room)
+    print("Server Connected to " + room + " from " + sid)
+
+@socketio.on("client_join", namespace="/wii")
+def on_client_join(data):
+    room = data["room"]
+    sid = request.sid
+    join_room(room)
+    print("Client Connected to " + room + " from " + sid)
+    emit("client_join", {"sid": sid}, room=room)
 
 @socketio.on("leave", namespace="/wii")
 def on_leave(data):
@@ -18,14 +25,15 @@ def on_leave(data):
     sid = request.sid
     leave_room(room)
     print("User {} has left the room {}".format(sid, room))
-    emit("leave", room=room)
+    emit("leave", {"sid": sid}, room=room)
 
 @socketio.on("orientation", namespace="/wii")
 def angles(data):
     # print(data)
     room = data["room"]
+    sid = request.sid
     position = calculate_pos(data["angles"]["alpha"], data["angles"]["beta"])
-    emit("position", position, room=room)
+    emit("position", {"position": position, "sid": sid}, room=room)
     emit("angles", data["angles"], room=room)
 
 @socketio.on("a_down", namespace="/wii")

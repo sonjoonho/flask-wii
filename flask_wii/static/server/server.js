@@ -1,14 +1,18 @@
 $(document).ready(function() {
-  let socket = io.connect("http://" + document.domain + ":" + location.port + "/wii");
-
+  let socket = io.connect("http://" + document.domain + ":" + location.port + "/wii"); 
   // Turn this into a random number
   const room = "123";
 
   socket.on("connect", function() {
     console.log("Connected to room " + room);
     socket.emit("join", {room: room});
-    // Spawn a new cursor?
-    CursorObject("");
+  });
+
+  socket.on("client_join", function(data) {
+    console.log("New client with sid: " + data.sid)
+    // Spawn a new cursor
+    CursorObject(data.sid);
+
   });
 
   // Spawns a cursor
@@ -17,6 +21,7 @@ $(document).ready(function() {
     this.cursor.setAttribute("id", "cursor"+sid);
     this.cursor.setAttribute("src", "/static/server/cursor.png");
     this.cursor.setAttribute("width", "50");
+    this.cursor.style.position = "absolute";
     document.body.appendChild(this.cursor);
   };
 
@@ -30,7 +35,7 @@ $(document).ready(function() {
   let gamma;
 
   socket.on("angles", function(angles) {
-    console.log(angles);
+    //console.log(angles);
     alpha = angles.alpha;
     beta = angles.beta;
     gamma = angles.gamma;
@@ -40,12 +45,15 @@ $(document).ready(function() {
   });
 
 
-  socket.on("position", function(position) {
-    let cursor = document.getElementById("cursor");
+  socket.on("position", function(data) {
+    position = data.position;
+    sid = data.sid
+    let cursor = document.getElementById("cursor" + sid);
+
     cursorPosition = {
       x: position.x * screenWidth,
       y: position.y * screenHeight
-    }
+    };
 
     // cursor.style.left = (cursor.offsetLeft - cursorPosition.x) + "px"
     cursor.style.left = (cursorPosition.x) + "px";
@@ -56,7 +64,7 @@ $(document).ready(function() {
     cursor.style.msTransform = "rotate(" + gamma + "deg)";
     // Standard
     cursor.style.transform = "rotate(" + gamma + "deg)";
-    console.log("x: "+position.x * screenWidth + " y: "+ position.y);
+    // console.log("x: "+position.x * screenWidth + " y: "+ position.y);
   });
 
   // Button presses
