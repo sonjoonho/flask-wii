@@ -1,21 +1,33 @@
 $(document).ready(function() {
-  var socket = io.connect("http://" + document.domain + ":" + location.port + "/wii");
+  let socket = io.connect("http://" + document.domain + ":" + location.port + "/wii");
 
-  var room = "123";
+  // Turn this into a random number
+  const room = "123";
 
   socket.on("connect", function() {
     console.log("Connected to room " + room);
     socket.emit("join", {room: room});
+    // Spawn a new cursor?
+    CursorObject("");
   });
+
+  // Spawns a cursor
+  let CursorObject = function(sid) {
+    this.cursor = document.createElement("img");
+    this.cursor.setAttribute("id", "cursor"+sid);
+    this.cursor.setAttribute("src", "/static/server/cursor.png");
+    this.cursor.setAttribute("width", "50");
+    document.body.appendChild(this.cursor);
+  };
 
   // Cursor movement
 
   screenWidth = window.screen.width * window.devicePixelRatio;
   screenHeight = window.screen.height * window.devicePixelRatio;
 
-  var alpha;
-  var beta;
-  var gamma;
+  let alpha;
+  let beta;
+  let gamma;
 
   socket.on("angles", function(angles) {
     console.log(angles);
@@ -27,9 +39,9 @@ $(document).ready(function() {
     $("#gamma").text(Number(gamma).toFixed(1));
   });
 
-  var cursor = document.getElementById("cursor");
 
   socket.on("position", function(position) {
+    let cursor = document.getElementById("cursor");
     cursorPosition = {
       x: position.x * screenWidth,
       y: position.y * screenHeight
