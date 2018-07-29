@@ -1,15 +1,18 @@
 from flask import render_template, Blueprint, request, redirect, url_for
 from . import server
 import flask_wii
-print(flask_wii.__file__)
+from random import randint
 
 @server.route("/")
 def index():
     # TODO adding iphone support?
+    # Also I don't think this actually works
     if request.user_agent.platform == "android":
         return redirect(url_for("client.controller"))
     else:
-        return render_template("server/server.html")
+        # Not actually checking if the room already exists, but just hope it doesn't
+        room_number = randint(1, 10000)
+        return render_template("server/server.html", room_number=room_number)
 
 @server.route("/canvas")
 def canvas():

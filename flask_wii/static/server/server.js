@@ -1,9 +1,14 @@
 $(document).ready(function() {
   let socket = io.connect("http://" + document.domain + ":" + location.port + "/wii"); 
-  // Turn this into a random number
-  const room = "123";
+
+  const room = document.getElementById("room-number").innerHTML;
 
   socket.on("connect", function() {
+    console.log("Connected to room " + room);
+    socket.emit("join", {room: room});
+  });
+
+  socket.on("disconnect", function() {
     console.log("Connected to room " + room);
     socket.emit("join", {room: room});
   });
@@ -12,7 +17,6 @@ $(document).ready(function() {
     console.log("New client with sid: " + data.sid)
     // Spawn a new cursor
     CursorObject(data.sid);
-
   });
 
   // Spawns a cursor
@@ -30,24 +34,20 @@ $(document).ready(function() {
   screenWidth = window.screen.width * window.devicePixelRatio;
   screenHeight = window.screen.height * window.devicePixelRatio;
 
-  let alpha;
-  let beta;
-  let gamma;
-
-  socket.on("angles", function(angles) {
-    //console.log(angles);
-    alpha = angles.alpha;
-    beta = angles.beta;
-    gamma = angles.gamma;
-    $("#alpha").text(Number(alpha).toFixed(1));
-    $("#beta").text(Number(beta).toFixed(1));
-    $("#gamma").text(Number(gamma).toFixed(1));
-  });
-
 
   socket.on("position", function(data) {
     position = data.position;
     sid = data.sid
+    angles = data.angles
+
+    //console.log(angles);
+    let alpha = angles.alpha;
+    let beta = angles.beta;
+    let gamma = angles.gamma;
+    $("#alpha").text(Number(alpha).toFixed(1));
+    $("#beta").text(Number(beta).toFixed(1));
+    $("#gamma").text(Number(gamma).toFixed(1));
+
     let cursor = document.getElementById("cursor" + sid);
 
     cursorPosition = {
