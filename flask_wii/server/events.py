@@ -28,13 +28,13 @@ def on_leave(data):
     emit("leave", {"sid": sid}, room=room)
 
 @socketio.on("orientation", namespace="/wii")
-def angles(data):
+def orientation(data):
     # print(data)
     room = data["room"]
     sid = request.sid
-    position = calculate_pos(data["angles"]["alpha"], data["angles"]["beta"])
-    emit("position", {"position": position, "sid": sid}, room=room)
-    emit("angles", data["angles"], room=room)
+    angles = data["angles"]
+    position = calculate_pos(angles["alpha"], angles["beta"])
+    emit("position", {"sid": sid, "position": position, "angles": angles}, room=room)
 
 @socketio.on("a_down", namespace="/wii")
 def a_down(data):
