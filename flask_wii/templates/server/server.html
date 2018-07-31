@@ -16,7 +16,6 @@
 {% endblock %}
 
 {% block content %}
-<h2> {{ room_number }} </h2>
 
 <!-- Boot message modal -->
 <div id="boot">
@@ -24,12 +23,20 @@
     <p>This demo has only been tested on Chrome and Android</p>
     <p>Join the room below:</p>
     <p id="room-number">{{ room_number }}</p>
+    <span id="close">Click me to close</span>
   </div>
 </div>
 
-<div id="alpha">0</div>
-<div id="beta">0</div>
-<div id="gamma">0</div>
+<div class="content">
+  <div id="angles">
+    <p>Alpha</p>
+    <div id="alpha">0</div>
+    <p>Beta</p>
+    <div id="beta">0</div>
+    <p>Gamma</p>
+    <div id="gamma">0</div>
+  </div>
+</div>
 
 
 {% endblock %}

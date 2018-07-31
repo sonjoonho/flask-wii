@@ -1,3 +1,7 @@
+html {
+  font-family: Arial;
+}
+
 div {
   display: inline-block;
 }
@@ -5,4 +9,45 @@ div {
 #cursor {
   position: absolute;
   z-index: 9;
+}
+
+#boot {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 40%;
+  background-color: #ccc;
+  border-radius: 50px;
+  background: linear-gradient(#f7f7f7, #DADCD9);
+  box-shadow: 0 0 20px grey;
+  text-align: center;
+}
+
+#boot-content {
+  font-size: 2em;
+  padding: 20px 20px 20px 20px;
+}
+
+#room-number {
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  box-shadow: inset 0 0 10px grey;
+}
+
+#close {
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px grey;
+  border: 1px solid #59B6C4;
+  background: white;
+}
+
+.content {
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #59B6C4;
+  border-radius: 10px;
 }

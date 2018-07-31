@@ -9,7 +9,7 @@ $(document).ready(function() {
   });
 
   socket.on("disconnect", function() {
-    console.log("Connected to room " + room);
+    console.log("Disconnected from room " + room);
     socket.emit("join", {room: room});
   });
 
@@ -77,6 +77,13 @@ $(document).ready(function() {
     cursor.src = "static/server/cursor.png";
   });
 
+  var boot = document.getElementById("boot");
+  
+  var close = document.getElementById("close");
+  
+  close.onclick = function() {
+      boot.style.display = "none";
+  }
 
 
 

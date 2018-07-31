@@ -1,8 +1,7 @@
 from flask_wii import create_app, socketio
 import os
 
-# app = create_app(debug=True)
-app = create_app()
+app = create_app(debug=True)
 
 if __name__ == "__main__":
     import eventlet
