@@ -70,11 +70,11 @@ $(document).ready(function() {
   // Button presses
 
   socket.on("a_down", function() {
-    cursor.src = "static/server/cursor_grabbing.png";
+    cursor.src = "static/server/cursor_grabbing.jpg";
   });
 
   socket.on("a_up", function() {
-    cursor.src = "static/server/cursor.png";
+    cursor.src = "static/server/cursor.jpg";
   });
 
   var boot = document.getElementById("boot");
