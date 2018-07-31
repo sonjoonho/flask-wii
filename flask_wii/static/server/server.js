@@ -69,20 +69,41 @@ $(document).ready(function() {
 
   // Button presses
 
-  socket.on("a_down", function() {
+  socket.on("a_down", function(data) {
+    sid = data.sid
+    let cursor = document.getElementById("cursor" + sid);
     cursor.src = "static/server/cursor_grabbing.jpg";
+
+    if (overlap(close, cursor)) {
+      console.log("CLICK");   
+    }
   });
 
-  socket.on("a_up", function() {
+  socket.on("a_up", function(data) {
+    sid = data.sid
+    let cursor = document.getElementById("cursor" + sid);
     cursor.src = "static/server/cursor.jpg";
   });
 
-  var boot = document.getElementById("boot");
+  let  boot = document.getElementById("boot");
+
+  let  close = document.getElementById("close");
   
-  var close = document.getElementById("close");
+  //close.addEventListener("wii-click", function() {console.log("CLICK"); });
+
+  //let event = new Event("wii-click");
+
   
-  close.onclick = function() {
-      boot.style.display = "none";
+  // close.onclick = function() {
+  //     boot.style.display = "none";
+  // }
+
+  function overlap(rect1, rect2) { 
+    
+    return (rect1.right < rect2.left || 
+            rect1.left > rect2.right || 
+            rect1.bottom < rect2.top || 
+            rect1.top > rect2.bottom)
   }
 
 

@@ -40,11 +40,11 @@ def orientation(data):
 def a_down(data):
     room = data["room"]
     print("A button down")
-    emit("a_down", "", room=room)
+    emit("a_down", {"sid": sid}, room=room)
 
 @socketio.on("a_up", namespace="/wii")
 def a_up(data):
     room = data["room"]
     print("A button up")
-    emit("a_up", "", room=room)
+    emit("a_up", {"sid": sid}, room=room)
 
