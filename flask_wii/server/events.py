@@ -18,8 +18,8 @@ def on_client_join(data):
     print("Client Connected to " + room + " from " + sid)
     emit("client_join", {"sid": sid}, room=room)
 
-@socketio.on("leave", namespace="/wii")
-def on_leave(data):
+@socketio.on("disconnect", namespace="/wii")
+def disconnect(data):
     # print(data)
     room = data["room"]
     sid = request.sid
