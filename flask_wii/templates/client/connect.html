@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
+{% block head %}
+<link rel="stylesheet" type="text/css" href={{ url_for("static", filename="client/connect.css") }} >
+{% endblock %}
+
 {% block content %}
-<form method="POST" action="/controller">
-  {{ form.csrf_token }}
-  {{ form.room }}
-  <input type="submit" value="Join room">
-</form>
+<div id="form-wrapper">                                        
+  <p>Point your phone at the centre of the screen and join the room.</p>
+  <form method="POST" action="/controller">
+    {{ form.csrf_token }}
+    {{ form.room }}
+    <input type="submit" value="Join room">
+  </form>
+</div>
 {% endblock %}

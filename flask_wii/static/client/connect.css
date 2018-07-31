@@ -1,0 +1,35 @@
+html {
+  font-family: Arial;
+  font-size: 1em;
+}
+
+#form-wrapper {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 50px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+input[type=text], select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: #eaeaea;
+  padding: 14px 20px;
+  border: 1px solid #ccc;
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
