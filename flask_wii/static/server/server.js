@@ -23,7 +23,7 @@ $(document).ready(function() {
   let CursorObject = function(sid) {
     this.cursor = document.createElement("img");
     this.cursor.setAttribute("id", "cursor"+sid);
-    this.cursor.setAttribute("src", "/static/server/cursor.png");
+    this.cursor.setAttribute("src", "/static/server/cursor.jpg");
     this.cursor.setAttribute("width", "50");
     this.cursor.style.position = "absolute";
     document.body.appendChild(this.cursor);
