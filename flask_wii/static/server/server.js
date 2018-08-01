@@ -119,9 +119,9 @@ $(document).ready(function() {
 
   let  boot = document.getElementById("boot");
 
-  let  close = document.getElementById("close");
+  let  close_button = document.getElementById("close");
   
-  close.onmousedown = function() {
+  close_button.onmousedown = function() {
     boot.style.display = "none";
     console.log("CLICK");
   };
