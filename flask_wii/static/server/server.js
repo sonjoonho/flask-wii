@@ -117,9 +117,9 @@ $(document).ready(function() {
    * Controls the modal popup
    */
 
-  let  boot = document.getElementById("boot");
+  let boot = document.getElementById("boot");
 
-  let  close_button = document.getElementById("close");
+  let close_button = document.getElementById("close");
   
   close_button.onmousedown = function() {
     boot.style.display = "none";
