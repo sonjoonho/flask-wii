@@ -75,13 +75,15 @@ $(document).ready(function() {
 
   // Triggers a mouse event of eventType. This can be "click", "mousedown" or "mouseup".
   function triggerMouseEvent(x, y, eventType) {
-      var clickEvent= document.createEvent('MouseEvents');
-      clickEvent.initMouseEvent(
-      eventType, true, true, window, 0,
-      0, 0, x, y, false, false,
-      false, false, 0, null
-      );
-      document.elementFromPoint(x, y).dispatchEvent(clickEvent);
+    let clickEvent= document.createEvent('MouseEvents');
+    clickEvent.initMouseEvent(
+    eventType, true, true, window, 0,
+    0, 0, x, y, false, false,
+    false, false, 0, null
+    );
+  
+    console.log(document.elementFromPoint(x, y));
+    document.elementFromPoint(x, y).dispatchEvent(clickEvent);
   }
 
   // Triggers on A button down
@@ -97,8 +99,6 @@ $(document).ready(function() {
     // Simulates the click event
     
     triggerMouseEvent(cursorPos.top, cursorPos.left, "mousedown");
-
-  
   });
 
   // Triggers on A button up
@@ -111,8 +111,6 @@ $(document).ready(function() {
     console.log("Mouse up at " + cursorPos.top, cursorPos.left);
     
     triggerMouseEvent(cursorPos.top, cursorPos.left, "mouseup");
-
-  
   });
 
   /**
