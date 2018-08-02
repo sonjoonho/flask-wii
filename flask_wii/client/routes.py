@@ -3,6 +3,7 @@ from flask_socketio import emit
 from . import client
 from .forms import room_form
 
+
 @client.route("/controller", methods=["GET", "POST"])
 def controller():
     form = room_form()
