@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
 
-  var socket = io.connect('http://' + document.domain + ':' + location.port + "/wii");
+  var socket = io.connect('https://' + document.domain + ':' + location.port + "/wii");
 
   // Pass room variable from template?
   var room = document.getElementById("room").innerHTML;
