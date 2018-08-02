@@ -123,18 +123,6 @@ $(document).ready(function() {
   
   close_button.onmousedown = function() {
     boot.style.display = "none";
-    console.log("CLICK");
   };
-
-  function overlap(rect1, rect2) { 
-    
-    console.log(rect1.right, rect2.left);
-    return (rect1.right < rect2.left || 
-            rect1.left > rect2.right || 
-            rect1.bottom < rect2.top || 
-            rect1.top > rect2.bottom);
-  }
-
-
 
 });
