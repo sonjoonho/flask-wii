@@ -1,12 +1,12 @@
 html {
-  font-family: Arial;
+  FONt-family: Arial;
 }
 
 div {
   display: inline-block;
 }
 
-#cursor {
+.cursor {
   position: absolute;
   z-index: 9;
 }
@@ -44,7 +44,7 @@ div {
   box-shadow: 0 0 5px grey;
   border: 1px solid #59B6C4;
   background: white;
-  z-index: 8;
+  position: relative;
 }
 
 .content {

@@ -30,6 +30,7 @@ $(document).ready(function() {
   // Spawns a cursor
   let CursorObject = function(sid) {
     this.cursor = document.createElement("img");
+    this.cursor.setAttribute("class", "cursor");
     this.cursor.setAttribute("id", "cursor"+sid);
     this.cursor.setAttribute("src", "/static/server/cursor.png");
     this.cursor.setAttribute("width", "50");
@@ -75,7 +76,7 @@ $(document).ready(function() {
 
   // Triggers a mouse event of eventType. This can be "click", "mousedown" or "mouseup".
   function triggerMouseEvent(x, y, eventType) {
-    let clickEvent= document.createEvent('MouseEvents');
+    let clickEvent = document.createEvent('MouseEvents');
     clickEvent.initMouseEvent(
     eventType, true, true, window, 0,
     0, 0, x, y, false, false,
@@ -95,10 +96,10 @@ $(document).ready(function() {
     // Gets the bounding box of the cursor
     // Note that JavaScript and CSS handles .right and .bottom differently
     let cursorPos = cursor.getBoundingClientRect();
-    console.log("Mouse down at " + cursorPos.top, cursorPos.left);
+    console.log("Mouse down at " + cursorPos.x, cursorPos.y);
     // Simulates the click event
     
-    triggerMouseEvent(cursorPos.top, cursorPos.left, "mousedown");
+    triggerMouseEvent(cursorPos.x, cursorPos.y, "mousedown");
   });
 
   // Triggers on A button up
@@ -108,9 +109,9 @@ $(document).ready(function() {
     cursor.src = "static/server/cursor.png";
     
     let cursorPos = cursor.getBoundingClientRect();
-    console.log("Mouse up at " + cursorPos.top, cursorPos.left);
+    console.log("Mouse up at " + cursorPos.x, cursorPos.y);
     
-    triggerMouseEvent(cursorPos.top, cursorPos.left, "mouseup");
+    triggerMouseEvent(cursorPos.x, cursorPos.y, "mouseup");
   });
 
   /**
