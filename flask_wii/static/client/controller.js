@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
 
-  let socket = io.connect('http://' + document.domain + ':' + location.port + "/wii");
+  let socket = io.connect('https://' + document.domain + ':' + location.port + "/wii");
 
   let room = document.getElementById("room").innerHTML;
 
