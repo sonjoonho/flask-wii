@@ -3,7 +3,6 @@ $(document).ready(function() {
 
   let socket = io.connect('https://' + document.domain + ':' + location.port + "/wii");
 
-  // Pass room letiable from template?
   let room = document.getElementById("room").innerHTML;
 
   socket.on("connect", function() {
@@ -37,12 +36,7 @@ $(document).ready(function() {
       let beta = eventData.beta;
       let gamma = eventData.gamma;
 
-      // if (alpha > 180) {
-      //   alpha -= 360;
-      // }
-      
-
-      console.log("("+alpha+","+beta+","+gamma+")");
+      // console.log("("+alpha+","+beta+","+gamma+")");
 
       socket.emit("orientation", {room: room, angles: {alpha: alpha, beta: beta, gamma: gamma}});
                                                                           
@@ -56,11 +50,6 @@ $(document).ready(function() {
 
     a_button.addEventListener("touchend", function() {
       socket.emit("a_up", {room: room});
-    });
-
-    $(window).on("orientationchange", function(event) {
-
-      
     });
     
 

@@ -15,13 +15,3 @@ def index():
         room_number = randint(1, 10000)
         return render_template("server/server.html", room_number=room_number)
 
-
-@server.route("/canvas")
-def canvas():
-    return render_template("server/canvas.html")
-
-
-# @server.route("/boot")
-# def boot():
-#     room = "123"
-#     return render_template("server/boot.html", room=room)
