@@ -22,8 +22,6 @@ $(document).ready(function() {
      * gamma: left-right tilt
      */
 
-    let alpha, beta, gamma;
-  
     window.addEventListener("deviceorientation", function(eventData) {       
 
       // This is for zeroing the values. I think this is required on iOS but not Android or not idk
@@ -35,9 +33,9 @@ $(document).ready(function() {
       // beta = eventData.beta;
       // gamma = eventData.gamma;
       
-      alpha = eventData.alpha;
-      beta = eventData.beta;
-      gamma = eventData.gamma;
+      let alpha = eventData.alpha;
+      let beta = eventData.beta;
+      let gamma = eventData.gamma;
 
       // if (alpha > 180) {
       //   alpha -= 360;
