@@ -1,10 +1,10 @@
 $(document).ready(function() {
   
 
-  var socket = io.connect('https://' + document.domain + ':' + location.port + "/wii");
+  let socket = io.connect('https://' + document.domain + ':' + location.port + "/wii");
 
-  // Pass room variable from template?
-  var room = document.getElementById("room").innerHTML;
+  // Pass room letiable from template?
+  let room = document.getElementById("room").innerHTML;
 
   socket.on("connect", function() {
     console.log("Connected to room " + room);
@@ -22,7 +22,7 @@ $(document).ready(function() {
      * gamma: left-right tilt
      */
 
-    var alpha, beta, gamma;
+    let alpha, beta, gamma;
   
     window.addEventListener("deviceorientation", function(eventData) {       
 
@@ -39,9 +39,9 @@ $(document).ready(function() {
       beta = eventData.beta;
       gamma = eventData.gamma;
 
-      if (alpha > 180) {
-        alpha -= 360;
-      }
+      // if (alpha > 180) {
+      //   alpha -= 360;
+      // }
       
 
       console.log("("+alpha+","+beta+","+gamma+")");
@@ -51,7 +51,7 @@ $(document).ready(function() {
                                                                           
     }, false);
     
-    var a_button = document.getElementById("a_button");
+    let a_button = document.getElementById("a_button");
 
     a_button.addEventListener("touchstart", function() {
       socket.emit("a_down", {room: room});
