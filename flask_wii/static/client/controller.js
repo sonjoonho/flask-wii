@@ -44,8 +44,7 @@ $(document).ready(function() {
 
       console.log("("+alpha+","+beta+","+gamma+")");
 
-      socket.emit("orientation", {room: room, angles: {alpha: alpha, beta: beta, gamma: gamma}
-      });
+      socket.emit("orientation", {room: room, angles: {alpha: alpha, beta: beta, gamma: gamma}});
                                                                           
     }, false);
     

@@ -38,8 +38,8 @@ $(document).ready(function() {
     document.body.appendChild(this.cursor);
   };
 
-  screenWidth = window.screen.width * window.devicePixelRatio;
-  screenHeight = window.screen.height * window.devicePixelRatio;
+  let screenWidth = window.screen.width * window.devicePixelRatio;
+  let screenHeight = window.screen.height * window.devicePixelRatio;
 
   socket.on("position", function(data) {
     position = data.position;

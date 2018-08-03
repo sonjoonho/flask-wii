@@ -1,0 +1,21 @@
+/*
+.a_button {
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 500px;
+  background: white;
+  border-radius: 50%;
+  border: 25px solid gray;
+  margin: 0 auto;
+  font-size: 100px;
+  font-family: sans-serif;
+}
+*/
+
+.icons {
+  height: 1em;
+  vertical-align: middle;
+
+}

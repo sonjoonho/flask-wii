@@ -2,6 +2,7 @@
 
 {% block head %}
   {{ super() }}
+  <link rel="stylesheet" href={{ url_for("static", filename="icons.css") }} >
   <link rel="stylesheet" href={{ url_for("static", filename="server/server.css") }} >
   <script type="text/javascript" src={{ url_for("static", filename="server/server.js") }} ></script>
 
@@ -20,6 +21,7 @@
     <p>This demo has only been tested on Chrome and Android</p>
     <p>Join the room below:</p>
     <p id="room-number">{{ room_number }}</p>
+    <p>Press <img class="icons a_button" src={{ url_for("static", filename="icons/a_button.svg") }} > to click</p>
     <div id="close">Click me to close</div>
   </div>
 </div>
