@@ -1,3 +1,7 @@
+body {
+  font-family: sans-serif;
+
+}
 .not-selectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -7,6 +11,7 @@
   user-select: none;
 }
 
-.a_button {
-  text-align: center;
+#a_button {
+  width: 100%;
 }
+
