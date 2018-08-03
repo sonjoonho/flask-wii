@@ -9,5 +9,5 @@
 
 {% block content %}
   <h1 id=room>{{ room }}</h1>
-    <img id="a_button" src={{ url_for("static", filename="icons/a_button.svg") }}>
+  <img onselectstart="return false;" class="not-selectable" id="a_button" src={{ url_for("static", filename="icons/a_button.svg") }}>
 {% endblock %}

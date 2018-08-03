@@ -49,6 +49,7 @@ $(document).ready(function() {
     let alpha = angles.alpha;
     let beta = angles.beta;
     let gamma = angles.gamma;
+
     $("#alpha").text(Number(alpha).toFixed(1) + String.fromCharCode(176));
     $("#beta").text(Number(beta).toFixed(1) + String.fromCharCode(176));
     $("#gamma").text(Number(gamma).toFixed(1) + String.fromCharCode(176));
