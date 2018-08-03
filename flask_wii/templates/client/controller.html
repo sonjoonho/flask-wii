@@ -2,12 +2,12 @@
 
 {% block head %}
   {{ super() }}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src={{ url_for("static", filename="client/controller.js") }} ></script>
-  <link type="text/css" rel="stylesheet" href={{ url_for("static", filename="icons.css") }}>
   <link type="text/css" rel="stylesheet" href={{ url_for("static", filename="client/controller.css") }}>
 {% endblock %}
 
 {% block content %}
   <h1 id=room>{{ room }}</h1>
-  <img src={{ url_for("static", filename="icons/a_button.svg") }}>
+  <img id="a_button" src={{ url_for("static", filename="icons/a_button.svg") }}>
 {% endblock %}

@@ -1,18 +1,13 @@
 $(document).ready(function() {
   
 
-  let socket = io.connect('https://' + document.domain + ':' + location.port + "/wii");
+  let socket = io.connect('http://' + document.domain + ':' + location.port + "/wii");
 
   let room = document.getElementById("room").innerHTML;
 
   socket.on("connect", function() {
     console.log("Connected to room " + room);
     socket.emit("client_join", {room: room});
-  });
-
-  $("#a_button").click(function() {
-    socket.emit("a_press", "");
-
   });
 
   if (window.DeviceOrientationEvent) {
@@ -35,6 +30,10 @@ $(document).ready(function() {
       let alpha = eventData.alpha;
       let beta = eventData.beta;
       let gamma = eventData.gamma;
+
+      if (alpha > 180) {
+        alpha -= 360;
+      }
 
       // console.log("("+alpha+","+beta+","+gamma+")");
 
