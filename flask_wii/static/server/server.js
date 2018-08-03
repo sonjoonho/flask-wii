@@ -56,19 +56,25 @@ $(document).ready(function() {
 
     let cursor = document.getElementById("cursor" + sid);
 
-    cursorPosition = {
-      x: position.x * screenWidth,
-      y: position.y * screenHeight
-    };
+    if (alpha > 40 && alpha < 140) {
+      let wheel = document.getElementById("wii_wheel"); 
+      wheel.style.transform = "rotate(" + beta + "deg)";
+    } else {
 
-    cursor.style.left = (cursorPosition.x) + "px";
-    cursor.style.top = (cursorPosition.y) + "px";
-    // Safari
-    cursor.style.WebkitTransform = "rotate(" + gamma + "deg)"; 
-    // IE9
-    cursor.style.msTransform = "rotate(" + gamma + "deg)";
-    // Standard
-    cursor.style.transform = "rotate(" + gamma + "deg)";
+      cursorPosition = {
+        x: position.x * screenWidth,
+        y: position.y * screenHeight
+      };
+
+      cursor.style.left = (cursorPosition.x) + "px";
+      cursor.style.top = (cursorPosition.y) + "px";
+      // Safari
+      cursor.style.WebkitTransform = "rotate(" + gamma + "deg)"; 
+      // IE9
+      cursor.style.msTransform = "rotate(" + gamma + "deg)";
+      // Standard
+      cursor.style.transform = "rotate(" + gamma + "deg)";
+    }
   });
 
   /**
