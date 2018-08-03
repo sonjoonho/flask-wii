@@ -32,7 +32,7 @@ $(document).ready(function() {
     this.cursor = document.createElement("img");
     this.cursor.setAttribute("class", "cursor");
     this.cursor.setAttribute("id", "cursor"+sid);
-    this.cursor.setAttribute("src", "/static/server/cursor.png");
+    this.cursor.setAttribute("src", "/static/icons/cursor.png");
     this.cursor.setAttribute("width", "50");
     this.cursor.style.position = "absolute";
     document.body.appendChild(this.cursor);
@@ -91,7 +91,7 @@ $(document).ready(function() {
   socket.on("a_down", function(data) {
     sid = data.sid
     let cursor = document.getElementById("cursor" + sid);
-    cursor.src = "static/server/cursor_grabbing.png";
+    cursor.src = "static/icons/cursor_grabbing.png";
     
     // Gets the bounding box of the cursor
     // Note that JavaScript and CSS handles .right and .bottom differently
@@ -106,7 +106,7 @@ $(document).ready(function() {
   socket.on("a_up", function(data) {
     sid = data.sid
     let cursor = document.getElementById("cursor" + sid);
-    cursor.src = "static/server/cursor.png";
+    cursor.src = "static/icons/cursor.png";
     
     let cursorPos = cursor.getBoundingClientRect();
     console.log("Mouse up at " + cursorPos.x, cursorPos.y);
