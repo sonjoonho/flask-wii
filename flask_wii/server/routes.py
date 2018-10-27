@@ -6,12 +6,13 @@ from random import randint
 
 @server.route("/")
 def index():
-    # TODO adding iphone support?
-    # Also I don't think this actually works
     if request.user_agent.platform == "android":
         return redirect(url_for("client.controller"))
     else:
-        # Not actually checking if the room already exists, but just hope it doesn't
+        """
+        FIXME: -- Need to keep track of rooms that exist and ensure that
+                  duplicate rooms are not generated.
+        """
         room_number = randint(1, 10000)
         return render_template("server/server.html", room_number=room_number)
 
