@@ -18,13 +18,13 @@ To run:
 
 ```
 pipenv install -e .
-pipenv run python run.py
+pipenv run python3 run.py
 ```
 
 ## Built With
 
 - [Flask](https://github.com/pallets/flask) - Python micro web framework
-- [SocketIO](https://socket.io/) - provides realtime. bi-directional communication
+- [SocketIO](https://socket.io/) - provides realtime, bi-directional communication
 - [Flask-SocketIO](https://github.com/miguelgrinberg/Flask-SocketIO) - Flask integration with SocketIO
 
 ## Tools
@@ -40,9 +40,9 @@ pipenv run python run.py
 
 ## Future Work 
 
-- This application has not been tested on any platforms other than Chrome and Android. In particular, apparently [iPhones use game-based calibration](https://www.w3.org/2008/geolocation/wiki/images/e/e0/Device_Orientation_%27alpha%27_Calibration-_Implementation_Status_and_Challenges.pdf) for DeviceOrientationEvent.alpha, which means additional conversion would have to be implemented in the app.
-- Latency issues
-- Project structure
+- This application has only been tested on Chrome and Firefox with Android. In particular, apparently [iPhones use game-based calibration](https://www.w3.org/2008/geolocation/wiki/images/e/e0/Device_Orientation_%27alpha%27_Calibration-_Implementation_Status_and_Challenges.pdf) for DeviceOrientationEvent.alpha, which means additional conversion would have to be implemented in the app.
+- The initial phone orientation can be a problem, but I believe this is very device dependent which makes it difficult to debug.
+- Latency is not bad, but could be improved.
 - Canvas demo
 
 
