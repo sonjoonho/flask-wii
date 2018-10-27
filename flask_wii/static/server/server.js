@@ -1,9 +1,10 @@
 $(document).ready(function() {
+
   /** 
-   * Initialise socket.io
+   * Initialise socket.io  
    */
 
-  let socket = io.connect("https://" + document.domain + ":" + location.port + "/wii"); 
+  let socket = io.connect("http://" + document.domain + ":" + location.port + "/wii"); 
 
   const room = document.getElementById("room-number").innerHTML;
 
@@ -22,12 +23,10 @@ $(document).ready(function() {
     CursorObject(data.sid);
   });
 
-
   /**
-   * Controls the cursor movement
+   * Controls the cursor movement 
    */
 
-  // Spawns a cursor
   let CursorObject = function(sid) {
     this.cursor = document.createElement("img");
     this.cursor.setAttribute("class", "cursor");
@@ -38,8 +37,8 @@ $(document).ready(function() {
     document.body.appendChild(this.cursor);
   };
 
-  let screenWidth = window.screen.width * window.devicePixelRatio;
-  let screenHeight = window.screen.height * window.devicePixelRatio;
+  const screenWidth = window.screen.width * window.devicePixelRatio;
+  const screenHeight = window.screen.height * window.devicePixelRatio;
 
   socket.on("position", function(data) {
     position = data.position;
