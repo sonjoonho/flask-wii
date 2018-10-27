@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  /** 
+   * Initialise socket.io 
+   */ 
+
   let socket = io.connect('https://' + document.domain + ':' + location.port + "/wii");
 
   let room = document.getElementById("room").innerHTML;
@@ -10,7 +14,8 @@ $(document).ready(function() {
   });
 
   if (window.DeviceOrientationEvent) {
-    /* alpha: direction according to the compass                         
+    /** 
+     * alpha: direction according to the compass                         
      * beta: front-back tilt
      * gamma: left-right tilt
      */
@@ -31,7 +36,9 @@ $(document).ready(function() {
     
     let a_button = document.getElementById("a_button");
 
-    /* socket.io events */
+    /**
+     * socket.io events 
+     */
 
     a_button.addEventListener("touchstart", function() {
       socket.emit("a_down", {room: room});
@@ -40,15 +47,10 @@ $(document).ready(function() {
     a_button.addEventListener("touchend", function() {
       socket.emit("a_up", {room: room});
     });
-    
 
   } else {
     console.log("Unsupported!");
-    // TODO clearly this redirect doesn't work
     window.location.replace("unsupported.html");
   }
-  
-
-
 
 });
