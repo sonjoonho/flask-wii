@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
-
 }
+
 .not-selectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
