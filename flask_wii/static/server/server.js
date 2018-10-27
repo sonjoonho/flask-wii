@@ -34,6 +34,8 @@ $(document).ready(function() {
     this.cursor.setAttribute("src", "/static/icons/cursor.png");
     this.cursor.setAttribute("width", "50");
     this.cursor.style.position = "absolute";
+    this.cursor.style.left = (screenWidth/2) + "px";
+    this.cursor.style.top = (screenHeight/2) + "px";
     document.body.appendChild(this.cursor);
   };
 
