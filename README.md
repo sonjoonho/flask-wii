@@ -8,7 +8,7 @@ Read the blog post at <https://sonjoonho.github.io/flask-wii>
 
 ## Usage
 
-You can test this app at <https://flask-wii.herokuapp.com>
+You can test this app at <https://flask-wii.herokuapp.com>. Note that this must be done over HTTPS or connection will fail.
 
 Alternatively, you can run it locally.
 
