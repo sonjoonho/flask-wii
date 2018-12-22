@@ -44,6 +44,7 @@ pipenv run python3 run.py
 - The initial phone orientation can be a problem, but I believe this is very device dependent which makes it difficult to debug.
 - Latency is not bad, but could be improved.
 - Canvas demo
+- Actual SSL certificate lol
 
 
 
