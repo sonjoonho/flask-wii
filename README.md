@@ -4,7 +4,7 @@
 
 A Flask web application that emulates the features of a Wii controller with just a mobile device. Inspired by: [web-riimote](https://github.com/konaraddio/web-riimote)
 
-Read the blog post at <https://sonjoonho.github.io/flask-wii>
+Read the blog post at <https://sonj.me/flask-wii>
 
 ## Usage
 
